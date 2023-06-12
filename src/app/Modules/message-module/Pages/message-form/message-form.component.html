@@ -1,0 +1,36 @@
+<div style="position: relative;">
+    <h2> Add Message </h2>
+    <mat-icon class="close-icon" (click)="onCloseDialog()">close</mat-icon>
+</div>
+
+<form [formGroup]="messageForm">
+    <div class="tab-content">
+        <div class="content-container tab-content-height">
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your Name</mat-label>
+                <input matInput formControlName="name" placeholder="Name">
+            </mat-form-field>
+
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter Message </mat-label>
+                <textarea matInput class="text-area"
+                formControlName="message" placeholder="Message"
+                cdkTextareaAutosize
+                maxlength="100"
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5">
+            </textarea>
+            </mat-form-field>
+            <mat-dialog-actions>
+                <button mat-raised-button class="btn-save" color="primary" (click)="submit()"
+                    [disabled]="messageForm.invalid"> Save
+                </button>
+                <button mat-raised-button color="warn" (click)="onCloseDialog()" style="margin-left: 20px;">Cancel
+                </button>
+            </mat-dialog-actions>
+        </div>
+    </div>
+
+</form>
